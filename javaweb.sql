@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.32)
-# Date: 2019-05-30 22:30:31
+# Date: 2019-06-12 20:26:15
 # Generator: MySQL-Front 5.3  (Build 2.42)
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -26,13 +26,13 @@ CREATE TABLE `comment` (
   `ID` int(8) NOT NULL DEFAULT '0',
   `content` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`pid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=gbk;
 
 #
 # Data for table "comment"
 #
 
-INSERT INTO `comment` VALUES (1,1,3,'hhh, 真是欢乐'),(2,1,2,'还在写文章！！！代码敲了吗？'),(3,1,1,'不想写了'),(4,1,1,'???'),(5,1,1,'我还以为不行嘞'),(6,1,1,'希望不要再出bug'),(7,1,1,'最后一测！！！！'),(8,8,1,'火钳刘明'),(9,8,1,'hhhh');
+INSERT INTO `comment` VALUES (1,1,3,'hhh, 真是欢乐'),(2,1,2,'还在写文章！！！代码敲了吗？'),(3,1,1,'不想写了'),(4,1,1,'???'),(5,1,1,'我还以为不行嘞'),(6,1,1,'希望不要再出bug'),(7,1,1,'最后一测！！！！'),(8,8,1,'火钳刘明'),(9,8,1,'hhhh'),(10,8,1,'aaaaaaaaaa');
 
 #
 # Source for table "draft"
@@ -93,7 +93,7 @@ CREATE TABLE `news` (
 # Data for table "news"
 #
 
-INSERT INTO `news` VALUES (1,2,1),(1,2,2),(1,2,15),(1,2,16),(2,1,1),(2,1,3),(2,1,4);
+INSERT INTO `news` VALUES (1,2,1),(1,2,2),(1,2,15),(1,2,16),(1,2,17),(1,2,18),(1,2,19),(2,1,1),(2,1,3),(2,1,4);
 
 #
 # Source for table "news_con"
@@ -105,13 +105,13 @@ CREATE TABLE `news_con` (
   `content` varchar(255) DEFAULT NULL,
   `time` date DEFAULT '0000-00-00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='消息号与消息内容的对应，一条消息内容包含多条消息';
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='消息号与消息内容的对应，一条消息内容包含多条消息';
 
 #
 # Data for table "news_con"
 #
 
-INSERT INTO `news_con` VALUES (1,'你好，也很高兴遇见你','2018-01-01'),(2,'最近怎么样','2018-03-01'),(3,'我很好，你呢？','2018-03-02'),(4,'你好,很高兴遇见你','2017-01-01'),(15,'shit','2019-05-22'),(16,'sdfsfds','2019-05-29');
+INSERT INTO `news_con` VALUES (1,'你好，也很高兴遇见你','2018-01-01'),(2,'最近怎么样','2018-03-01'),(3,'我很好，你呢？','2018-03-02'),(4,'你好,很高兴遇见你','2017-01-01'),(15,'shit','2019-05-22'),(16,'sdfsfds','2019-05-29'),(17,'asdfdasf','2019-06-10'),(18,'aaaaaaaaaaaaaaaa','2019-06-10'),(19,'bbbbbbbbbbb','2019-06-12');
 
 #
 # Source for table "userrel"
@@ -156,7 +156,7 @@ CREATE TABLE `users` (
 # Data for table "users"
 #
 
-INSERT INTO `users` VALUES (1,'fishman','123',18,'teacher','15571824568','876@qq.com','english','世事漫随流水，醒来一梦浮生','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1.jpg',1,NULL),(2,'cat','123',15,'student','12444589945','8763@qq.com','math','love life,love study','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1.jpg',1,NULL),(3,'onlyYou','123',12,'student','12548648897','152@qq.com','math','no,no,no','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\eclipse-mars',1,NULL),(4,'beginer','123',11,'student','13878489975','154@163.com','math','go home now','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\eclipse-mars',1,NULL),(5,'nonono','123456',18,'profess','8764','876475897@qq.com','nno','nononno','D:javaWebworkspaces.metadata.pluginsorg.eclipse.wst.server.core\tmp0wtpwebappsMyWebheadImage1bg.jpg','',1,'34660');
+INSERT INTO `users` VALUES (1,'fishman','123',18,'teacher','15571824568','876@qq.com','english','世事漫随流水，醒来一梦浮生','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1.png',1,NULL),(2,'cat','123',15,'student','12444589945','8763@qq.com','math','love life,love study','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1.jpg',1,NULL),(3,'onlyYou','123',12,'student','12548648897','152@qq.com','math','no,no,no','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\eclipse-mars',1,NULL),(4,'beginer','123',11,'student','13878489975','154@163.com','math','go home now','D:\\javaWeb\\workspaces\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MyWeb\\headImage\\1bg.jpg','D:\\javaWeb\\eclipse-mars',1,NULL),(5,'nonono','123456',18,'profess','8764','876475897@qq.com','nno','nononno','D:javaWebworkspaces.metadata.pluginsorg.eclipse.wst.server.core\tmp0wtpwebappsMyWebheadImage1bg.jpg','',1,'34660');
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

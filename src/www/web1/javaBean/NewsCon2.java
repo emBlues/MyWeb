@@ -65,6 +65,9 @@ public class NewsCon2 {
 	}
 	
 	public String getTopContent(){
+		if(top == null){
+			return null;
+		}
 		return top.getContent();
 	}
 	
