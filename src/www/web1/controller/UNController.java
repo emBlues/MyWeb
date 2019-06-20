@@ -102,7 +102,7 @@ public class UNController {
 			user.getRandomCode();
 			user.setPassword(password);
 			um.updateUser(user);
-			info = "修改密码成功,快点去登录吧！！！";
+			info = "修改密码成功,快点去登录吧！！！<a href='login.jsp'>点此登陆</a>";
 			mav.addObject("info", info);
 		}else{
 			info = "校验码错误,修改密码失败！可能是链接已失效";

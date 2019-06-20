@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form action="upPswdServlet" method="post">
-			<input type="hidden" name="id" value="${id }">
-			<input type="hidden" name="checkCode" value="${checkCode }">
+			<input type="hidden" name="id" value="${param.id }">
+			<input type="hidden" name="checkCode" value="${param.checkCode }">
 			<div class="find1">
 				<span style="font-size: 150%;margin-left: 40px;">新密码</span>
 				<input type="text" name="password" style="width: 200px;height: 30px;"/><br />		

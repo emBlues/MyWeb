@@ -50,7 +50,7 @@
 					<h3>${c.getHeadline()}</h3>
 				 	<!-- <a href="#">${c.getID()}</a> -->
 					<p>${c.getContent().substring(0, 3)}...<a href="ed-content?pid=${c.getPid()}">详情</a></p>
-					<c:if test="${user.getID()==1 }"><a href="#">警告</a><a href="#">删除</a></c:if>
+					<c:if test="${user.getID()==1 }"><a href="vipDelete?pid=${c.getPid() }&id=${c.getID() }">删除</a></c:if>
 				<div style="background-color:white;border-radius:5px;width: 800px;height:35px;">
 					<img src="pic/转发.png" style="float: right;"/>
 					<img src="pic/评论.png" style="float: right;"/>

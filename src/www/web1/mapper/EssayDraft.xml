@@ -42,7 +42,7 @@
 	    </select>
 	    
 	    <insert id="addDraft" parameterType="www.web1.javaBean.Draft">
-	    	insert ignore into draft values (#{pid}, #{ID}, #{headline}, now(),#{content})
+	    	insert ignore into draft(ID, headline, date, content) values (#{ID}, #{headline}, now(),#{content})
 	    </insert>
 	    
 	    <insert id="addEssay" parameterType="www.web1.javaBean.Essay">
@@ -56,6 +56,10 @@
 	    <update id="updateEssay" parameterType="www.web1.javaBean.Essay" >
 	    	update Essay set headline=#{headline},date=now(),content=#{content} where pid=#{pid}
 	    </update>
+	    
+	    <delete id="deleteEssay" parameterType="int">
+	    	delete from Essay where pid = #{pid}
+	    </delete>
 	    
 	    <delete id="deleteDraft" parameterType="int">
 	    	delete from draft where pid = #{pid}

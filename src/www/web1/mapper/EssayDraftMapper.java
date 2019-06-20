@@ -19,5 +19,6 @@ public interface EssayDraftMapper {
 	public void updateDraft(Draft draft);
 	public void updateEssay(Essay essay);
 	public void deleteDraft(int pid);
+	public void deleteEssay(int pid);
 	public List<Essay> getByFanID(int ID);
 }

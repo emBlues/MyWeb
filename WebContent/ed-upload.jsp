@@ -57,7 +57,6 @@
 
 			<form action="saveDraft" method="post" class="right2" id="draftForm">
 				<input name="pid" type="hidden" value="${draft.getPid() }"/>
-				<input name="ID" type="hidden" value="${draft.getID() }"/>
 				<div class="right1">
 					<span style="font-size: 150%;">题目：</span>
 					<input name="theme" type="text" value="${draft.getHeadline()  }" />
@@ -72,6 +71,10 @@
 						document.getElementById("draftForm").action = "saveDraft";  
 			         	document.getElementById("draftForm").submit();  
 					}
+					function deleteD(){
+						document.getElementById("draftForm").action = "deleteDraft";  
+			         	document.getElementById("draftForm").submit();  
+					}
 				</script>
 				<select name="type" >
 					<option value="小说">小说</option>
@@ -83,6 +86,7 @@
 				</select>
 				<input name="submit" type="submit" value="上传" onclick="submitD()"/>
 				<input name="submit" type="submit" value="保存" onclick="saveD()"/>
+				<input name="submit" type="submit" value="删除" onclick="deleteD()"/>
 			</form>
 		</div>
 	</body>

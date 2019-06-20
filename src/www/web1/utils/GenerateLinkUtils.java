@@ -26,7 +26,7 @@ public class GenerateLinkUtils {
      * 生成重设密码的链接 
      */  
     public static String generateResetPwdLink(User user) {  
-        return "http://localhost:8080/MyWeb/updatePswd?id="   
+        return "http://localhost:8080/MyWeb/updatePswd.jsp?id="   
                 + user.getID() + "&" + CHECK_CODE + "=" + generateCheckcode(user);  
     }  
       

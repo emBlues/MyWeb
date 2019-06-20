@@ -10,7 +10,11 @@ public class Page {
 		return start;
 	}
 	public void setStart(int start) {
-		this.start = start;
+		if(start >= 0){
+			this.start = start;
+		}else{
+			this.start = 0;
+		}
 	}
 	public int getCount() {
 		return count;

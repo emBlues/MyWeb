@@ -1,6 +1,7 @@
 package www.web1.controller;
 
 import java.io.File;
+import java.net.URL;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -184,7 +185,7 @@ public class EDController {
 	}
 	
 	@RequestMapping("ed-newsFrame")
-	public ModelAndView displayNewsFrame(@SessionAttribute(value="user") User user,@RequestParam(value="id",defaultValue="0") int id){
+	public ModelAndView displayNewsFrame(@SessionAttribute(value="user") User user,@RequestParam(value="id") int id){
 		ModelAndView mav = new ModelAndView();
 		List<NewsCon> meNewsCons = om.getUsersNews(user.getID(), id);
 		List<NewsCon> newsCons = om.getUsersNews(id, user.getID());
@@ -194,6 +195,9 @@ public class EDController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		if(newsConAll.getSize() == 0){
+			newsConAll = null;
 		}
 		mav.addObject("news", newsConAll);
 		mav.addObject("userb", id);
@@ -207,7 +211,7 @@ public class EDController {
 			@RequestParam("text") String text){
 		ModelAndView mav = new ModelAndView();
 		om.addNews(usera, userb, text);
-		mav.setViewName("login");
+		mav.setViewName("redirect:/ed-newsFrame?id="+String.valueOf(userb));
 		return mav;
 	}
 	
@@ -220,15 +224,12 @@ public class EDController {
 			String path = request.getServletContext().getRealPath("/headImage");
 			String name = file.getOriginalFilename();
 			String filename = String.valueOf(user.getID())+"."+name.substring(name.length()-3, name.length());
-			File filepath = new File(path, filename);
-			if(!filepath.getParentFile().exists()){
-				filepath.getParentFile().mkdirs();
-			}
+			String filehead = "http://localhost:8080/MyWeb/headImage/";
 			file.transferTo(new File(path + File.separator + filename));
-			user.setPathOfHead(path + File.separator + filename);
+			user.setPathOfHead(filehead+filename);
 			um.updateUser(user);
 			model.addAttribute("user", user);
-			System.out.println("上传至路径："+path + File.separator + filename);
+			System.out.println("上传至路径："+filehead+filename);
 			return "ed-person";
 		}
 		return "ed-index";
@@ -243,15 +244,12 @@ public class EDController {
 			String path = request.getServletContext().getRealPath("/headImage");
 			String name = file.getOriginalFilename();
 			String filename = String.valueOf(user.getID())+"bg."+name.substring(name.length()-3, name.length());
-			File filepath = new File(path, filename);
-			if(!filepath.getParentFile().exists()){
-				filepath.getParentFile().mkdirs();
-			}
+			String filehead = "http://localhost:8080/MyWeb/headImage/";
 			file.transferTo(new File(path + File.separator + filename));
-			user.setPathOfBg(path + File.separator + filename);
+			user.setPathOfBg(filehead+filename);
 			um.updateUser(user);
 			model.addAttribute("user", user);
-			System.out.println("上传至路径："+path + File.separator + filename);
+			System.out.println("上传至路径："+filehead+filename);
 			return "ed-person";
 		}
 		return "ed-index";
@@ -259,25 +257,51 @@ public class EDController {
 	
 	@PostMapping("submitDraft")
 	public String submitDraft(@RequestParam("pid") int pid,
-			@RequestParam("ID") int ID, 
+			@SessionAttribute(value="user") User user,
 			@RequestParam("theme") String theme,
 			@RequestParam("comCon") String comCon,
 			@RequestParam("type") String type){
-		Draft draft = new Draft(pid, ID, theme, comCon);
+		Draft draft = new Draft(pid, user.getID(), theme, comCon);
 		Essay essay = new Essay(draft, type);
 		edm.addEssay(essay);
 		edm.deleteDraft(pid);
-		return "ed-index";
+		return "redirect:/ed-index";
 	}
 	
 	@PostMapping("saveDraft")
 	public String saveDraft(@RequestParam("pid") int pid,
-			@RequestParam("ID") int ID, 
+			@SessionAttribute(value="user") User user,
 			@RequestParam("theme") String theme,
 			@RequestParam("comCon") String comCon){
-		Draft draft = new Draft(pid, ID, theme, comCon);
-		edm.updateDraft(draft);
-		return "ed-upload";
+		Draft draft = new Draft(pid, user.getID(), theme, comCon);
+		//System.out.println(draft.toString());
+		if(draft.getPid() == 0){
+			edm.addDraft(draft);
+		}else{
+			edm.updateDraft(draft);
+		}
+		return "redirect:/ed-upload";
+	}
+	
+	@PostMapping("deleteDraft")
+	public String deleteDraft(@RequestParam("pid") int pid,
+			@SessionAttribute(value="user") User user,
+			@RequestParam("theme") String theme,
+			@RequestParam("comCon") String comCon){
+		Draft draft = new Draft(pid, user.getID(), theme, comCon);
+		System.out.println(draft.toString());
+		edm.deleteDraft(pid);
+		return "redirect:/ed-upload";
+	}
+	
+	@RequestMapping("vipDelete")
+	public String vipDelete(@RequestParam("pid") int pid,
+			@RequestParam("id") int id,
+			@SessionAttribute(value="user") User user){
+		if(user.getID() == 1){
+			edm.deleteEssay(pid);
+		}
+		return "redirect:/ed-index";
 	}
 	
 	@RequestMapping("loginout")

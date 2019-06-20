@@ -82,4 +82,11 @@ public class NewsCon2 {
 	public int getType(){
 		return type;
 	}
+
+	@Override
+	public String toString() {
+		return "NewsCon2 [a=" + a + ", b=" + b + ", top=" + top + ", size=" + size + ", type=" + type + "]";
+	}
+	
+	
 }

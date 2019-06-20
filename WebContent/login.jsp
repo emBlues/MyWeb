@@ -36,7 +36,7 @@
 		
 	
 		<div style="margin-top: 20px;float:right;margin-right: 50px;">
-			<a href="findPswd.jsp">找回密码</a>
+			<a href="un-findPswd.jsp">找回密码</a>
 			
 		<div class="wrap">
   <div class="bg">

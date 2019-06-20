@@ -147,4 +147,13 @@ public class User {
     	this.randomCode = String.valueOf(a);
     	return String.valueOf(a);
     }
+
+	@Override
+	public String toString() {
+		return "User [ID=" + ID + ", nickname=" + nickname + ", password=" + password + ", age=" + age + ", profession="
+				+ profession + ", tele=" + tele + ", email=" + email + ", habby=" + habby + ", autograph=" + autograph
+				+ ", PathOfBg=" + PathOfBg + ", PathOfHead=" + PathOfHead + ", actived=" + actived + ", randomCode="
+				+ randomCode + "]";
+	}
+	
 }
