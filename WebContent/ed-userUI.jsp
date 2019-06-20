@@ -42,7 +42,7 @@
     		<div id="faction1">
     			<c:if test="${re == null }"><a href="concern?ID=${person.getID() }">关注</a></c:if>
     			<c:if test="${re != null }"><a href="unconcern?ID=${person.getID() }">取消关注</a></c:if>
-    			<a href="ed-newsFrame?ID=${person.getID() }">私信</a>
+    			<a href="talk?ID=${person.getID() }">私信</a>
     			<span>粉丝：5</span><span>关注：6</span>
     		</div>
     	</div>
@@ -79,6 +79,6 @@
     
     </div>
     
-
+<script src='js/text.js'></script>
 </body>
 </html>

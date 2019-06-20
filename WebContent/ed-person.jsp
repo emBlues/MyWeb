@@ -99,6 +99,6 @@
     
     </div>
     
-
+	<script src='js/text.js'></script>
 </body>
 </html>
